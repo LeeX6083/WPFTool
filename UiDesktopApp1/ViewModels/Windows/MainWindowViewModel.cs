@@ -26,8 +26,14 @@ namespace UiDesktopApp1.ViewModels.Windows
             new NavigationViewItem()
             {
                 Content = "日志",
-                Icon = new SymbolIcon { Symbol = SymbolRegular.Document24 },
+                Icon = new SymbolIcon { Symbol = SymbolRegular.ContentView20 },
                 TargetPageType = typeof(Views.Pages.LogViewerPage)
+            },
+            new NavigationViewItem()
+            {
+                 Content = "ERP模拟测试",
+                Icon = new SymbolIcon { Symbol = SymbolRegular.Cloud16 },
+                TargetPageType = typeof(Views.Pages.ERPToolPage)
             }
         ];
 

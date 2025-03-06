@@ -11,7 +11,7 @@ namespace UiDesktopApp1.Models
         public DateTime Timestamp { get; set; } // 时间戳
         public string Level { get; set; } = string.Empty;      // 日志级别
         public string ThreadId { get; set; } = string.Empty;      // 线程ID
-        public decimal Duration {  get; set; }  // 耗时
+        public decimal Duration { get; set; }  // 耗时
         public decimal TotalDuration { get; set; }  // 总耗时
         public string Module { get; set; } = string.Empty;   // 模块名称
         public string Version { get; set; } = string.Empty;   // 版本号

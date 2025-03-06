@@ -31,7 +31,7 @@ namespace UiDesktopApp1.Services
 
                 // 定义日志行的正则表达式模式
                 string pattern = @"^(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d+)\|([A-Z]+)\[(\d+)\]\[([^\]]+)\]\s(.*)$";
-                Regex regex = new Regex(pattern);
+                Regex regex = new(pattern);
                 Encoding logEncoding = DetectEncodingFromBom(filePath);
                 foreach (var line in File.ReadAllLines(filePath, logEncoding))
                 {
@@ -50,8 +50,11 @@ namespace UiDesktopApp1.Services
                         {
                             // 进一步处理 moduleContent 以提取 Module 和 Method
                             string[] moduleParts = moduleContent.Split('.');
-                            string module = moduleParts[0];
-                            string method = moduleParts.Length > 1 ? moduleContent.Substring(module.Length + 1) : string.Empty;
+                            if (moduleParts.Length <= 1)
+                                continue;
+
+                            string module = $"{moduleParts[0]}.{moduleParts[1]}";
+                            string method = moduleContent[(module.Length + 1)..];
 
                             // 处理 content 以提取 Version 和 真正的 content
                             string version = string.Empty;
@@ -77,6 +80,10 @@ namespace UiDesktopApp1.Services
                             });
                         }
 
+                    }
+                    else
+                    {
+                        logEntries[^1].Content += $"/r{line}";
                     }
                 }
             }
@@ -140,6 +147,12 @@ namespace UiDesktopApp1.Services
             return logs.Count - 1;
         }
 
+        /// <summary>
+        /// 计算耗时
+        /// </summary>
+        /// <param name="logs"></param>
+        /// <param name="startIndex"></param>
+        /// <param name="endIndex"></param>
         private static void ProcessSegment(List<LogEntry> logs, int startIndex, int endIndex)
         {
             DateTime startTime = logs[startIndex].Timestamp;
@@ -200,7 +213,7 @@ namespace UiDesktopApp1.Services
             }
 
             // 如果没有检测到BOM，返回默认编码（这里假设为UTF-8）
-            return Encoding.UTF8;
+            return Encoding.GetEncoding("GB2312");
         }
 
         public T? GetPage<T>()

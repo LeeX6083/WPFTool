@@ -52,9 +52,12 @@ namespace UiDesktopApp1
                 services.AddSingleton<DataViewModel>();
                 services.AddSingleton<SettingsPage>();
                 services.AddSingleton<SettingsViewModel>();
+                //日志工具
                 services.AddSingleton<LogViewerPage>();
                 services.AddSingleton<LogViewModel>();
                 services.AddSingleton<LogService>();
+                //ERP模拟
+                services.AddSingleton<ERPToolPage>();
             }).Build();
 
         /// <summary>

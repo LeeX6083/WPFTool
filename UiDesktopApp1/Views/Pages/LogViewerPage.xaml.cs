@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UiDesktopApp1.Models;
 using UiDesktopApp1.Services;
 using UiDesktopApp1.ViewModels.Pages;
 using Wpf.Ui.Controls;
@@ -74,6 +76,32 @@ namespace UiDesktopApp1.Views.Pages
             {
                 gridLog.MaxHeight = window.ActualHeight * 0.6;
             }
+        }
+
+        private void DataGridCell_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            // 获取双击的单元格
+            var cell = sender as DataGridCell;
+            if (cell != null)
+            {
+                // 获取单元格的数据上下文
+                var dataContext = cell.DataContext as LogEntry;
+                if (dataContext != null)
+                {
+                    // 打开新窗口显示完整内容
+                    var popupWindow = new ContentPage(dataContext.Content);
+                    popupWindow.Show();
+                }
+            }
+        }
+
+        private void gridLog_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            // 获取当前行的索引（从0开始）
+            int rowIndex = e.Row.GetIndex();
+
+            // 设置行号（从1开始）
+            e.Row.Header = (rowIndex + 1).ToString();
         }
     }
 }

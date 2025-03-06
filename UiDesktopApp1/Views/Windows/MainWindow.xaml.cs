@@ -38,7 +38,7 @@ namespace UiDesktopApp1.Views.Windows
 
         public void CloseWindow() => Close();
 
-        #endregion INavigationWindow methods
+        #endregion INavigationWindow methods 
 
         /// <summary>
         /// Raises the closed event.
