@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UiDesktopApp1.Services;
 using Wpf.Ui.Controls;
 
 namespace UiDesktopApp1.ViewModels.Pages
@@ -11,22 +12,24 @@ namespace UiDesktopApp1.ViewModels.Pages
     {
         [ObservableProperty]
         private List<string>? _serviceNames;
-        public ERPToolModel()
+        private ERPToolService _ERPToolService;
+        public ERPToolModel(ERPToolService ERPToolService)
         {
-
+            _ERPToolService = ERPToolService;
+            InitializeServiceNames();
         }
 
         #region 导航方法
-
-        public void OnNavigatedFrom()
-        {
-            throw new NotImplementedException();
-        }
 
         public void OnNavigatedTo()
         {
             throw new NotImplementedException();
         }
+        public void OnNavigatedFrom()
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
         #region 私有方法
@@ -36,7 +39,7 @@ namespace UiDesktopApp1.ViewModels.Pages
         /// </summary>
         private void InitializeServiceNames()
         {
-            ServiceNames = new() { "wo.create", "" };
+            ServiceNames = _ERPToolService.GetServiceNames();
         }
         #endregion
     }

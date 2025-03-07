@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using UiDesktopApp1.Views.Pages;
-using UiDesktopApp1.Views.Windows;
+using System.Windows;
 using Wpf.Ui;
+using WpfTool.MainApp.Views.Windows;
 
-namespace UiDesktopApp1.Services
+namespace WpfTool.MainApp.Services
 {
     /// <summary>
     /// Managed host of the application.
@@ -50,7 +50,7 @@ namespace UiDesktopApp1.Services
                 )!;
                 _navigationWindow!.ShowWindow();
 
-                _navigationWindow.Navigate(typeof(Views.Pages.LogViewerPage));
+                _navigationWindow.Navigate(typeof(WpfTool.MainApp.Views.Pages.DashboardPage));
             }
 
             await Task.CompletedTask;

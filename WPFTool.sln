@@ -5,6 +5,22 @@ VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiDesktopApp1", "UiDesktopApp1\UiDesktopApp1.csproj", "{E3AFCF4A-E6EF-4996-B8F2-2AC53227DEA0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTool.LogViewerModule", "WpfTool.LogViewerModule\WpfTool.LogViewerModule.csproj", "{9ADAE3ED-47AB-4E42-BAC9-57F132040BCE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTool.Common", "WpfTool.Common\WpfTool.Common.csproj", "{23A872A7-1382-491D-88BA-28BD46CA7058}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTool.DataAccess", "WpfTool.DataAccess\WpfTool.DataAccess.csproj", "{93485E2D-B722-424C-9AFA-26AA61CBD400}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTool.Tests", "WpfTool.Tests\WpfTool.Tests.csproj", "{85C71CA0-CC41-4D99-924D-D811B3151B20}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CoreModel", "CoreModel", "{F0FABBB8-509A-4DB2-B90A-5DA371D0FDEF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{423A5128-7852-4D8A-B32C-FD5383D872F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTool.SharedInterfaces", "WpfTool.SharedInterfaces\WpfTool.SharedInterfaces.csproj", "{DD4B98DE-4C7E-4808-8B34-B8E5C7E7E4A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTool.MainApp", "WpfTool.MainApp\WpfTool.MainApp.csproj", "{95DA3E38-C70A-4582-85C5-E9B61F0D281A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +31,37 @@ Global
 		{E3AFCF4A-E6EF-4996-B8F2-2AC53227DEA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3AFCF4A-E6EF-4996-B8F2-2AC53227DEA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3AFCF4A-E6EF-4996-B8F2-2AC53227DEA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9ADAE3ED-47AB-4E42-BAC9-57F132040BCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ADAE3ED-47AB-4E42-BAC9-57F132040BCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ADAE3ED-47AB-4E42-BAC9-57F132040BCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ADAE3ED-47AB-4E42-BAC9-57F132040BCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23A872A7-1382-491D-88BA-28BD46CA7058}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23A872A7-1382-491D-88BA-28BD46CA7058}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23A872A7-1382-491D-88BA-28BD46CA7058}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23A872A7-1382-491D-88BA-28BD46CA7058}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93485E2D-B722-424C-9AFA-26AA61CBD400}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93485E2D-B722-424C-9AFA-26AA61CBD400}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93485E2D-B722-424C-9AFA-26AA61CBD400}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93485E2D-B722-424C-9AFA-26AA61CBD400}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85C71CA0-CC41-4D99-924D-D811B3151B20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85C71CA0-CC41-4D99-924D-D811B3151B20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85C71CA0-CC41-4D99-924D-D811B3151B20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85C71CA0-CC41-4D99-924D-D811B3151B20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD4B98DE-4C7E-4808-8B34-B8E5C7E7E4A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD4B98DE-4C7E-4808-8B34-B8E5C7E7E4A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD4B98DE-4C7E-4808-8B34-B8E5C7E7E4A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD4B98DE-4C7E-4808-8B34-B8E5C7E7E4A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95DA3E38-C70A-4582-85C5-E9B61F0D281A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95DA3E38-C70A-4582-85C5-E9B61F0D281A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95DA3E38-C70A-4582-85C5-E9B61F0D281A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95DA3E38-C70A-4582-85C5-E9B61F0D281A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9ADAE3ED-47AB-4E42-BAC9-57F132040BCE} = {F0FABBB8-509A-4DB2-B90A-5DA371D0FDEF}
+		{85C71CA0-CC41-4D99-924D-D811B3151B20} = {423A5128-7852-4D8A-B32C-FD5383D872F2}
+		{95DA3E38-C70A-4582-85C5-E9B61F0D281A} = {F0FABBB8-509A-4DB2-B90A-5DA371D0FDEF}
 	EndGlobalSection
 EndGlobal

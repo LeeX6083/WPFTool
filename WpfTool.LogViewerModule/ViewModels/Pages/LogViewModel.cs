@@ -9,16 +9,19 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using UiDesktopApp1.Models;
-using UiDesktopApp1.Services;
 using CommunityToolkit.Mvvm.Input;
 using Wpf.Ui.Controls;
 using System.Globalization;
 using System.Windows.Data;
+using CommunityToolkit.Mvvm.ComponentModel;
+using WpfTool.LogViewerModule.Models;
+using WpfTool.LogViewerModule.Services;
+using WpfTool.SharedInterfaces.Interfaces;
+using System.Windows.Controls;
 
-namespace UiDesktopApp1.ViewModels.Pages
+namespace WpfTool.LogViewerModule.ViewModels.Pages
 {
-    public partial class LogViewModel : ObservableObject, INavigationAware
+    public partial class LogViewModel : ObservableObject, INavigationAware, ILogViewerModel
     {
         #region 属性
         // 日志相关
@@ -27,7 +30,6 @@ namespace UiDesktopApp1.ViewModels.Pages
         [ObservableProperty]
         private List<LogEntry> _filteredLogs = [];
         private List<LogEntry>? _allLogs;
-        private readonly LogService _logService;
 
         // 搜索相关
         [ObservableProperty]
@@ -54,9 +56,8 @@ namespace UiDesktopApp1.ViewModels.Pages
         #endregion
 
         #region 构造方法
-        public LogViewModel(LogService logService)
+        public LogViewModel()
         {
-            _logService = logService;
         }
         #endregion
 
@@ -209,7 +210,12 @@ namespace UiDesktopApp1.ViewModels.Pages
                 .ToList();
         }
 
-      
+        public Page GetLogViewerPage()
+        {
+            throw new NotImplementedException();
+        }
+
+
 
         #endregion
 

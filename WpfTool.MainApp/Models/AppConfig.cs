@@ -1,4 +1,4 @@
-﻿namespace UiDesktopApp1.Models
+﻿namespace WpfTool.MainApp.Models
 {
     public class AppConfig
     {

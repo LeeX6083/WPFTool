@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UiDesktopApp1.Services;
+using UiDesktopApp1.ViewModels.Pages;
 
 namespace UiDesktopApp1.Views.Pages
 {
@@ -20,8 +22,10 @@ namespace UiDesktopApp1.Views.Pages
     /// </summary>
     public partial class ERPToolPage : Page
     {
-        public ERPToolPage()
+        public ERPToolModel ViewModel { get; }
+        public ERPToolPage(ERPToolService ERPToolService)
         {
+            ViewModel = new ERPToolModel(ERPToolService);
             InitializeComponent();
         }
 

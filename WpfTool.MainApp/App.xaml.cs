@@ -3,16 +3,17 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.IO;
 using System.Reflection;
+using System.Windows;
 using System.Windows.Threading;
-using UiDesktopApp1.Models;
-using UiDesktopApp1.Services;
-using UiDesktopApp1.ViewModels.Pages;
-using UiDesktopApp1.ViewModels.Windows;
-using UiDesktopApp1.Views.Pages;
-using UiDesktopApp1.Views.Windows;
 using Wpf.Ui;
+using WpfTool.MainApp.Models;
+using WpfTool.MainApp.Services;
+using WpfTool.MainApp.ViewModels.Pages;
+using WpfTool.MainApp.ViewModels.Windows;
+using WpfTool.MainApp.Views.Pages;
+using WpfTool.MainApp.Views.Windows;
 
-namespace UiDesktopApp1
+namespace WpfTool.MainApp
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -28,10 +29,9 @@ namespace UiDesktopApp1
             .CreateDefaultBuilder()
             .ConfigureAppConfiguration(c =>
             {
-                string basePath = Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location) ?? string.Empty;
-                c.SetBasePath(basePath)
+                c.SetBasePath(Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location) ?? string.Empty)
                  // 加载 appsettings.json 文件
-                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true); ;
+                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true); ; ;
             })
             .ConfigureServices((context, services) =>
             {
@@ -43,33 +43,13 @@ namespace UiDesktopApp1
                 // Page resolver service
                 services.AddSingleton<IPageService, PageService>();
 
-                // Theme manipulation
-                services.AddSingleton<IThemeService, ThemeService>();
-
-                // TaskBar manipulation
-                services.AddSingleton<ITaskBarService, TaskBarService>();
-
-                // Service containing navigation, same as INavigationWindow... but without window
                 services.AddSingleton<INavigationService, NavigationService>();
-
-                // Main window with navigation
                 services.AddSingleton<INavigationWindow, MainWindow>();
                 services.AddSingleton<MainWindowViewModel>();
 
                 services.AddSingleton<DashboardPage>();
                 services.AddSingleton<DashboardViewModel>();
-                services.AddSingleton<DataPage>();
-                services.AddSingleton<DataViewModel>();
-                services.AddSingleton<SettingsPage>();
-                services.AddSingleton<SettingsViewModel>();
-                //日志工具
-                services.AddSingleton<LogViewerPage>();
-                services.AddSingleton<LogViewModel>();
-                services.AddSingleton<LogService>();
-                //ERP模拟
-                services.AddSingleton<ERPToolPage>();
-                services.AddSingleton<ERPToolModel>();
-                services.AddSingleton<ERPToolService>();
+
             }).Build();
 
         /// <summary>
@@ -77,7 +57,7 @@ namespace UiDesktopApp1
         /// </summary>
         /// <typeparam name="T">Type of the service to get.</typeparam>
         /// <returns>Instance of the service or <see langword="null"/>.</returns>
-        public static T? GetService<T>()
+        public static T GetService<T>()
             where T : class
         {
             return _host.Services.GetService(typeof(T)) as T;
@@ -88,8 +68,6 @@ namespace UiDesktopApp1
         /// </summary>
         private void OnStartup(object sender, StartupEventArgs e)
         {
-            // 初始化 SQLite 提供程序  
-            SQLitePCL.Batteries.Init();
             _host.Start();
         }
 

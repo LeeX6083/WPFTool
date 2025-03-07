@@ -1,5 +1,4 @@
-﻿using UiDesktopApp1.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,8 +7,10 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Wpf.Ui;
 using Microsoft.Extensions.DependencyInjection;
+using WpfTool.LogViewerModule.Models;
+using System.Windows;
 
-namespace UiDesktopApp1.Services
+namespace WpfTool.LogViewerModule.Services
 {
     public class LogService
     {
