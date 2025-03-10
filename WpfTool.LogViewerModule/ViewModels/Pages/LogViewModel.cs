@@ -14,16 +14,19 @@ using Wpf.Ui.Controls;
 using System.Globalization;
 using System.Windows.Data;
 using CommunityToolkit.Mvvm.ComponentModel;
-using WpfTool.LogViewerModule.Models;
-using WpfTool.LogViewerModule.Services;
-using WpfTool.SharedInterfaces.Interfaces;
 using System.Windows.Controls;
+using WpfTool.SharedInterfaces.Services;
+using WpfTool.SharedInterfaces.ViewModels.Pages;
+using WpfTool.LogViewerModule.Views.Pages;
+using WpfTool.SharedInterfaces.Models;
 
 namespace WpfTool.LogViewerModule.ViewModels.Pages
 {
     public partial class LogViewModel : ObservableObject, INavigationAware, ILogViewerModel
     {
         #region 属性
+
+        private readonly ILogService _logService;
         // 日志相关
         [ObservableProperty]
         private List<LogEntry> _logs = [];
@@ -56,8 +59,9 @@ namespace WpfTool.LogViewerModule.ViewModels.Pages
         #endregion
 
         #region 构造方法
-        public LogViewModel()
+        public LogViewModel(ILogService logService)
         {
+            _logService = logService;
         }
         #endregion
 
@@ -85,7 +89,7 @@ namespace WpfTool.LogViewerModule.ViewModels.Pages
 
             try
             {
-                _allLogs = LogService.ReadLogs(filePaths);
+                _allLogs = _logService.ReadLogs(filePaths);
                 ResetPagination();
                 InitializeSearchMethods();
                 UpdateViewData(_allLogs);
@@ -212,10 +216,8 @@ namespace WpfTool.LogViewerModule.ViewModels.Pages
 
         public Page GetLogViewerPage()
         {
-            throw new NotImplementedException();
+            return new LogViewerPage(_logService);
         }
-
-
 
         #endregion
 

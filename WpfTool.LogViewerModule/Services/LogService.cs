@@ -7,19 +7,20 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Wpf.Ui;
 using Microsoft.Extensions.DependencyInjection;
-using WpfTool.LogViewerModule.Models;
+using WpfTool.SharedInterfaces.Models;
 using System.Windows;
+using WpfTool.SharedInterfaces.Services;
 
 namespace WpfTool.LogViewerModule.Services
 {
-    public class LogService
+    public class LogService : ILogService
     {
         private readonly IServiceProvider _serviceProvider;
         public LogService(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
         }
-        public static List<LogEntry> ReadLogs(string[] filePaths)
+        public List<LogEntry> ReadLogs(string[] filePaths)
         {
             var logEntries = new List<LogEntry>();
 

@@ -15,9 +15,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Wpf.Ui.Controls;
-using WpfTool.LogViewerModule.Models;
 using WpfTool.LogViewerModule.Services;
 using WpfTool.LogViewerModule.ViewModels.Pages;
+using WpfTool.SharedInterfaces.Models;
+using WpfTool.SharedInterfaces.Services;
 
 namespace WpfTool.LogViewerModule.Views.Pages
 {
@@ -27,7 +28,7 @@ namespace WpfTool.LogViewerModule.Views.Pages
     public partial class LogViewerPage : INavigableView<LogViewModel>
     {
         public LogViewModel ViewModel { get; }
-        public LogViewerPage(LogService logService)
+        public LogViewerPage(ILogService logService)
         {
             ViewModel = new LogViewModel(logService);
             DataContext = ViewModel;

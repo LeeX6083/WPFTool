@@ -6,12 +6,16 @@ using System.Reflection;
 using System.Windows;
 using System.Windows.Threading;
 using Wpf.Ui;
+using WpfTool.LogViewerModule.Services;
+using WpfTool.LogViewerModule.ViewModels.Pages;
 using WpfTool.MainApp.Models;
 using WpfTool.MainApp.Services;
 using WpfTool.MainApp.ViewModels.Pages;
 using WpfTool.MainApp.ViewModels.Windows;
 using WpfTool.MainApp.Views.Pages;
 using WpfTool.MainApp.Views.Windows;
+using WpfTool.SharedInterfaces.Services;
+using WpfTool.SharedInterfaces.ViewModels.Pages;
 
 namespace WpfTool.MainApp
 {
@@ -49,6 +53,14 @@ namespace WpfTool.MainApp
 
                 services.AddSingleton<DashboardPage>();
                 services.AddSingleton<DashboardViewModel>();
+
+                services.AddSingleton<DashboardPage>();
+                services.AddSingleton<DashboardViewModel>();
+
+                // 注册 ILogService 的实现
+                services.AddSingleton<ILogService, LogService>();
+                // 注册 ILogViewerModel 的实现
+                services.AddTransient<ILogViewerModel, LogViewModel>();
 
             }).Build();
 

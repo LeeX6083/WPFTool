@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfTool.LogViewerModule.Models
+namespace WpfTool.SharedInterfaces.Models
 {
     public class LogEntry
     {

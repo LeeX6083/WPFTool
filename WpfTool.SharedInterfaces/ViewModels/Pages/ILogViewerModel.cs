@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace WpfTool.SharedInterfaces.Interfaces
+namespace WpfTool.SharedInterfaces.ViewModels.Pages
 {
     public interface ILogViewerModel
     {

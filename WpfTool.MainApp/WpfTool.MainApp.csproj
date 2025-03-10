@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WpfTool.Common\WpfTool.Common.csproj" />
+    <ProjectReference Include="..\WpfTool.LogViewerModule\WpfTool.LogViewerModule.csproj" />
     <ProjectReference Include="..\WpfTool.SharedInterfaces\WpfTool.SharedInterfaces.csproj" />
   </ItemGroup>
 

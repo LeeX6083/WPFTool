@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
 using Wpf.Ui.Controls;
+using WpfTool.LogViewerModule.Views.Pages;
 
 namespace WpfTool.MainApp.ViewModels.Windows
 {
@@ -12,12 +13,12 @@ namespace WpfTool.MainApp.ViewModels.Windows
         [ObservableProperty]
         private ObservableCollection<object> _menuItems =
         [
-            //new NavigationViewItem()
-            //{
-            //    Content = "日志",
-            //    Icon = new SymbolIcon { Symbol = SymbolRegular.ContentView20 },
-            //    TargetPageType = typeof(Views.Pages.LogViewerPage)
-            //},
+            new NavigationViewItem()
+            {
+                Content = "日志",
+                Icon = new SymbolIcon { Symbol = SymbolRegular.ContentView20 },
+                TargetPageType = typeof(LogViewerPage)
+            },
             new NavigationViewItem()
             {
                  Content = "首页",
